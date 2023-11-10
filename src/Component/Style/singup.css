@@ -1,0 +1,25 @@
+.signup-Container{
+    width: 200px;
+    border: 1px solid;
+    background-color: rgba(222, 184, 135, 0.266);
+}
+.form-container{
+    width: 20%;
+    padding: 20px;
+}
+.signup-head{
+    font-size: x-large;
+    text-align: center;
+}
+.form-parent{
+    display: flex;
+    justify-content: center;
+    background-color: antiquewhite;
+}
+.formInp{
+    margin-bottom: 20px;
+}
+.form-container input{
+    height: 2rem;
+    border-radius: 5px;
+}
