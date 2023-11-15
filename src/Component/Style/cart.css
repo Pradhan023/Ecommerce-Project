@@ -23,6 +23,9 @@
     justify-content: space-around;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+.cartcontent-outter{
+    min-height: 28rem;
+}
 .cart-subcontent{
     display: flex;
     flex-direction: column;
@@ -39,8 +42,29 @@
     width: fit-content;
 }
 .cartprice{
-
     padding: 3rem 0 0 0;
+}
+.IncreDecre{
+    padding-top: 42px;
+}
+.quantity{
+    padding: 5.5px 10px 3px 10px;
+    background-color: white;
+    font-size: large;
+}
+.incre{
+    font-size: x-large;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    border-radius: 15px 0 0 15px;
+}
+.decre{
+    font-size: x-large;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    border-radius: 0 15px 15px 0;
 }
 .total{
     display: flex;
@@ -66,8 +90,83 @@
     background-color: burlywood;
     border: none;
     font-weight: bold;
-
 }
 .buy button:hover{
     box-shadow: -2px 0px 33px 9px rgba(255,171,66,0.55);
+}
+
+@media screen and (max-width:756px){
+    .headOfcart{
+        display: none;
+    }
+    .content-cart{
+        flex-direction: column;
+        place-items: center;
+        gap: 12px;
+        padding: 3rem 10px 18px 5px;
+    }
+    .total{
+        display: flex;
+        justify-content: space-around;
+        padding: 15px 0 20px 0;
+        gap:0px;
+    }
+    .total h2{
+        font-size: xx-large;
+        color: burlywood;
+    }
+    .total h1{
+        font-size: x-large;
+    }
+
+    .content-cart img{
+        width: 8rem;
+    }
+    .remove-cart{
+        margin-top: 10px;
+        padding: 8px;
+    }
+    .cartprice{
+        padding: 0;
+    }
+    .quantity{
+        padding: 5.5px 10px 3px 10px;
+        background-color: white;
+        font-size: large;
+    }
+    .content-cart h2{
+        font-size: large;
+    }
+    .buy button{
+        padding: 12px 20px;
+    }
+}
+
+@media screen and (min-width:756px) and (max-width:1200px){
+    .total{
+        display: flex;
+        justify-content: space-around;
+        padding: 20px 0 20px 0;
+        gap:0px;
+    }
+    .headOfcart{
+        justify-content: space-around;
+        padding: 10px 0 20px 0;
+        gap: 0;
+        position: relative;
+        right: 60px;
+    }
+    .content-cart img{
+        width: 10rem;
+    }
+    .cart-subcontent h2{
+        font-size: 1.2rem;
+        width: 17rem;
+    }
+    .content-cart h2{
+        font-size: x-large;
+    }
+    .cartprice{
+        padding: 2.2rem 0 0 0;
+    }
 }

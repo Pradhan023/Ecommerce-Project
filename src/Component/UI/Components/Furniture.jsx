@@ -6,11 +6,12 @@ import '../../Style/CompUi.css'
 
 const Furniture = () => {
   const Data = useContext(Store)
-  const[Mobiledata] = useState(["Kitchen, Cookware & Serveware","Kitchen Storeage","Cleaning Supplies","Furnishing","Home Decor"]);
+  const filtered = Data && Data.filter((item)=> item.category === "Furniture")
+  const[Mobiledata] = useState(["Kitchen Cookware & Serveware","Kitchen Storeage","Cleaning Supplies","Furnishing","Home Decor"]);
 
   return (
     <div>
-      <CompUI data = {Data} CompData={Mobiledata} head={"Furniture"} />
+      <CompUI data = {filtered} CompData={Mobiledata} head={"Furniture"} />
     </div>
   )
 }

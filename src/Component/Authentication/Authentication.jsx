@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Singup from './Singup '
 import Login from './Login'
 
 const Authentication = () => {
+  const[authVal,setauthVal] = useState(true)
   return (
     <div>
-        <Singup/>
-        <Login/>
+      {
+        authVal? <Login/> : <Singup/>
+      }
     </div>
   )
 }

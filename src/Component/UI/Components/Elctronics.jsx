@@ -5,11 +5,12 @@ import '../../Style/CompUi.css'
 
 const Elctronics = () => {
   const Data = useContext(Store)
+  const filtered = Data && Data.filter((item)=> item.category === "Electronics")
   const[Mobiledata] = useState(["Mobile Accessories","Smart wearable Tech","Laptops","Tv & Appliances"]);
   
   return (
     <div>
-      <CompUI data = {Data} CompData={Mobiledata} head={"Electronics"} />
+      <CompUI data = {filtered} CompData={Mobiledata} head={"Electronics"} />
     </div>
   )
 }

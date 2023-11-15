@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import '../Style/CompUi.css'
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addtoCart } from '../../Feature/cartslice';
 
@@ -8,6 +8,10 @@ const CompUI = ({data,CompData,head}) => {
   const [Data] = useState(data);
   const [Compdata] = useState(CompData)
   const dispatch = useDispatch();
+
+  const ScrollTo = () =>{
+    window.scrollTo(0,0)
+  }
 
   return (
         <div className="grid-parent">
@@ -18,7 +22,9 @@ const CompUI = ({data,CompData,head}) => {
               Compdata && Compdata.map((item,index)=>{
                 return(
                   <div key={index}>
-                    <p>{item}</p>
+                    <Link to={`/subcomp/${item}/${CompData}/${head}`} >
+                    <p style={{textDecoration:"none" , color:"black"}}>{item}</p>
+                    </Link>
                     <hr/>
                   </div>
                 )
@@ -36,7 +42,7 @@ const CompUI = ({data,CompData,head}) => {
               const{id=item.id,img=item.img,heading=item.heading,price=item.price} = item
               return(
                 <div className='card' key={index}>
-                    <Link className='linkcard'  to={`/rendercard/${index}/${item.category}` } state={CompData} >
+                    <Link onClick={ScrollTo}  className='linkcard'  to={`/rendercard/${item.id}/${item.category}` }  >
                     <img src={item.img} alt='Loading ...'/>
                     <h2>{item.heading}</h2>
                     <span>⭐⭐⭐⭐⭐</span>

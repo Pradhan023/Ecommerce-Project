@@ -1,0 +1,67 @@
+.form-parent{
+    display: flex;
+    justify-content: center;
+    background-image: url("https://www.popsci.com/uploads/2020/06/05/3NIEQB3SFVCMNHH6MHZ42FO6PA.jpg?auto=webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 40px 0;
+    cursor: pointer;
+}
+.form-Container{
+    width: 20rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    backdrop-filter: blur(5px);
+}
+.childform-container{
+    width: 20%;
+    padding: 20px;
+}
+.form-head{
+    font-size: xx-large;
+    color: white;
+    text-align: center;
+}
+.formInp{
+    margin:8px 0 20px 0;
+}
+.form-label{
+    color: white;
+}
+.childform-container input{
+    height: 2.6rem;
+    width: 17rem;
+    background:none;
+    border-radius: 5px;
+    border: 1px solid white;
+    padding-left: 10px;
+    outline: white;
+    font-size: large;
+    color: white;
+}
+.childform-container input::placeholder{
+    color: white;
+}
+.childform-container input:focus{
+    border: 2px solid white;
+}
+.form-btn{
+    color: white;
+    background: none;
+    font-size:large;
+    padding: 8px 15px;
+    background-color: rgba(56, 56, 56, 0.153);
+    border: 2px solid white;
+    margin-top: 10px;
+}
+
+.orOtpion{
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    text-align: center;
+    width: 17rem;
+    padding-top: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: x-large;
+}

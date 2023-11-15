@@ -5,8 +5,10 @@ import '../../Style/CompUi.css'
 
 const MobileTablet = () => {
   const Data = useContext(Store)
-  const[Mobiledata] = useState(["iphone","Oneplus","Samsung","Motorola","Oppo"]);
-  const filtered = Data && Data.filter((item)=>item.category === "Mobile")
+  console.log(Data , "jj");
+  const filtered = Data.filter((item)=>item.category === "Mobile")
+  console.log(filtered);
+  const[Mobiledata] = useState(["Iphone","Oneplus","Samsung","Motorola","Oppo"]);
 
   return (
     <div>

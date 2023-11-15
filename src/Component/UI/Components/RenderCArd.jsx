@@ -4,15 +4,19 @@ import Store from '../../Content/Store';
 import { useDispatch } from 'react-redux';
 import { addtoCart } from '../../../Feature/cartslice';
 import '../../Style/rendercard.css'
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 const RenderCArd = () => {
   const params = useParams()
   const paramId = params.id
   const paramcat = params.category
   const Data = useContext(Store);
+  console.log(Data);
   console.log(Data[paramId]);
   const {id=Data[paramId].id,img=Data[paramId].img,heading=Data[paramId].heading,price=Data[paramId].price} = Data
-
+console.log(id);
   const dispatch = useDispatch();
 
   const ScrollTo = () =>{
@@ -42,8 +46,8 @@ const RenderCArd = () => {
           Data.filter((item)=> item.category === paramcat).map((item,index)=>{
             if(index < 4){
               return(
-                <div className='more-card-content' >
-                  <Link onClick={ScrollTo} to={`/rendercard/${index}/${item.category}`} className='link-more-card-content'>
+                <div key={index} className='more-card-content' >
+                  <Link onClick={ScrollTo} to={`/rendercard/${item.id}/${item.category}`} className='link-more-card-content'>
                   <img src={item.img} />
                   <h2>{item.heading}</h2>
                   <p>⭐⭐⭐⭐⭐</p>

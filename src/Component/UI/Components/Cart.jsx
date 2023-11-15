@@ -1,18 +1,20 @@
 import React from 'react'
 import '../../Style/cart.css'
 import { useSelector } from 'react-redux'
-import { RemoveItem } from '../../../Feature/cartslice'
+import { RemoveItem , increaseQuantity , decreaseQuantity } from '../../../Feature/cartslice'
 import { useDispatch } from 'react-redux'
 
 const Cart = () => {
   const dispatch =useDispatch()
+
   const data = useSelector((state)=>state.Cart.cart);
-  const price = data.map((item)=> item.price)
-  let sum = 0;
-  for(let i = 0 ; i < price.length ; i++)
-  {
-    sum = price[i]+sum
-  }
+ 
+  //price sum
+  const sum = data.reduce((acc, item) => {
+    console.log(item);
+    return acc + item.price * item.quantity;
+  }, 0);
+
 
   return (
     <div>
@@ -26,19 +28,26 @@ const Cart = () => {
           <h4>Price</h4>
         </div>
 
-        <div>
+        <div className='cartcontent-outter'>
           {
             data && data.map((item,index)=>{
-              
+              const {id=item.id,price=item.price} = item
               return(
                 <div className='content-cart' key={index}>
                   <img src={item.img} alt='Loading...' />
                   <div className='cart-subcontent'>
                   <h2>{item.heading}</h2>
-                  <button className='remove-cart' onClick={()=>dispatch(RemoveItem({id:item.id}))}>Remove Cart</button>
+                  <button className='remove-cart' onClick={()=>dispatch(RemoveItem({id:id}))}>Remove Cart</button>
                   </div>
-                  <h2 className='cartprice'>{"₹ " +item.price}</h2>
-                </div>
+                  <h2 className='cartprice'>{"₹ " +price}</h2>
+
+                    {/* increase decrese quantity*/}
+                    <div className='IncreDecre'>  
+                      <button className="incre" onClick={() => dispatch(decreaseQuantity({ id }))}>-</button>
+                      <span className="quantity">{item.quantity}</span>
+                      <button className="decre" onClick={() => dispatch(increaseQuantity({ id }))}>+</button>
+                    </div>
+                </div> 
               )
             })
           }

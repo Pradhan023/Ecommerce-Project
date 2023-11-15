@@ -1,4 +1,152 @@
+.hometop-slider
+{
+    height: 35rem;
+}
+
 .home-gif img{
     width: 100%;
     height: 30rem;
+    margin-top: 15px;
+}
+
+.slider{
+    width: 96%;
+    margin-left: 2rem;
+}
+.homeCardProduct-parent{
+    background-color: white;
+    margin-top: 18px;
+    padding: 10px 0 25px 0;
+    min-height: 15rem;
+}
+
+.homeCardProduct-parent h3{
+    font-size: x-large;
+    text-align: center;
+    padding: 10px 0;
+}
+.home-cardProduct{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    width: 22rem;
+    padding: 1.2rem 0.5rem;
+    text-align: center;
+    gap: 15px;
+    cursor: pointer;
+    border: 1px solid white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.linkhome-cardProduct{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    gap: 15px;
+    text-decoration: none;
+    color: black;
+}
+.home-cardProduct img{
+    width: 12rem;
+    height: 15rem;
+}
+.homecard-heading{
+    height: 6rem;
+    font-size: 1.2rem;
+}
+.homecard-Price{
+    height: 3rem;
+}
+.home-cardProduct span{
+    font-size: x-large;
+}
+.home-cardProduct button{
+    padding: 15px;
+    font-size: large;
+    background-color: burlywood;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+@media screen and (max-width:756px){
+    .slider{
+        width: 84%;
+        margin-left: 2rem;
+    }
+    .homeCardProduct-parent{
+        background-color: white;
+        margin-top: 18px;
+        padding: 10px 0 25px 0;
+    }
+    .home-gif img{
+        width: 100%;
+        height: auto;
+        margin-top: 15px;
+    }
+    .hometop-slider
+    {
+        height: auto;
+    }
+    .home-cardProduct{
+        padding: 1.2rem 0.5rem;
+    }
+    .linkhome-cardProduct{
+        gap: 0px;
+        height: 25rem;
+    }
+    .home-cardProduct img{
+        width: 10rem;
+        height: 12rem;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (min-width:756px) and (max-width:1024px){
+    .slider{
+        width: 92%;
+        margin-left: 2rem;
+    }
+    .homeCardProduct-parent{
+        background-color: white;
+        margin-top: 18px;
+        padding: 10px 0 25px 0;
+    }
+    .home-gif img{
+        width: 100%;
+        height: auto;
+        margin-top: 15px;
+    }
+    .hometop-slider
+    {
+        height: auto;
+    }
+    .linkhome-cardProduct{
+        gap: 0px;
+        height: 25rem;
+    }
+    .home-cardProduct img{
+        width: 10rem;
+        height: 12rem;
+        margin-bottom: 10px;
+    }
+    .homecard-heading{
+        height: 6rem;
+        font-size: large;
+    }
+    .homecard-Price{
+        height: 3rem;
+        font-size: large;
+    }
+    .home-cardProduct span{
+        font-size: x-large;
+    }
+}
+
+@media screen and (min-width:1024px) and (max-width:1280px){
+    .slider{
+        width: 95%;
+    }
 }

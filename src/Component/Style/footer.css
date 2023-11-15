@@ -1,0 +1,157 @@
+.foot-gridParent{
+    background-image: url("https://www.nicepng.com/png/full/924-9244089_territory-supply-footer-mountains-image-zion-national-park.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr 1fr 1fr 0.5fr  ;
+    background-color: rgb(126, 126, 126);
+    padding: 30px 0;
+    cursor: pointer;
+}
+.foot-gridParent p{
+    color: white;
+}
+.foot-grid1{
+    grid-area: 1/2/2/3;
+}
+.foot-grid1 h2{
+    color: burlywood;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.foot-grid1 p{
+    font-size: x-large;
+    text-align: center;
+}
+.foot-grid2{
+    grid-area: 1/3/2/4;
+    text-align: center;
+}
+.foot-grid2 h2{
+    font-size: xx-large;
+    text-align: center;
+}
+.foot-grid2>div{
+    font-size: large;
+    line-height: 35px;
+    margin-top: 20px;
+}
+.foot-grid3{
+    grid-area: 1/4/2/5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.foot-grid3 h2{
+    font-size: xx-large;
+}
+.foot-grid3>div{
+    font-size: large;
+    line-height: 45px;
+    margin-top: 15px;
+}
+
+@media screen and (max-width:756px){
+    .foot-gridParent{
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr 2fr 2fr;
+        width: 100%;
+        padding: 0px 0;
+        background-size: cover;
+        gap: 
+        50px;
+    }
+    .foot-grid1{
+        grid-area: 1/1/2/2;
+        padding: 0 10px;
+    }
+    .foot-grid1 h2{
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .foot-grid1 p{
+        font-size: large;
+        text-align: center;
+        width: 100%;
+    }
+    .foot-grid2{
+        grid-area: 2/1/3/2;
+        text-align: center;
+    }
+    .foot-grid2 h2{
+        font-size: xx-large;
+        text-align: center;
+        color: rgb(177, 177, 177);
+    }
+    .foot-grid2>div{
+        font-size: large;
+        line-height: 35px;
+        margin-top: 0px;
+    }
+    .foot-grid3{
+        grid-area: 3/1/4/2;
+    }
+    .foot-grid3 h2{
+        font-size: xx-large;
+        color: rgb(177, 177, 177);
+    }
+    .foot-grid3>div{
+        font-size: large;
+        line-height: 45px;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (min-width:756px) and (max-width:1024px){
+    .foot-gridParent{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 2fr 1fr;
+        width: 100%;
+        padding: 8px 0;
+        background-size: cover;
+        gap: 20px;
+    }
+    .foot-grid1{
+        grid-area: 1/1/2/2;
+        padding: 10px 10px;
+    }
+    .foot-grid1 h2{
+        font-size: 4.5rem;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .foot-grid1 p{
+        font-size: xx-large;
+        text-align: center;
+        width: 90%;
+    }
+    .foot-grid2{
+        grid-area: 2/1/3/2;
+        text-align: center;
+    }
+    .foot-grid2 h2{
+        font-size: 4rem;
+        text-align: center;
+        color: rgb(177, 177, 177);
+        margin-top: 40px;
+    }
+    .foot-grid2>div{
+        font-size: xx-large;
+        line-height: 67px;
+        margin-top: 30px;
+    }
+    .foot-grid3{
+        grid-area: 3/1/4/2;
+    }
+    .foot-grid3 h2{
+        font-size: 4rem;
+        color: rgb(177, 177, 177);
+    }
+    .foot-grid3>div{
+        font-size: xx-large;
+        line-height: 60px;
+        margin-top: 10px;
+    }
+}

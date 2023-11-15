@@ -33,14 +33,16 @@ const Navbar = () => {
     const Nav = useNavigate()
 
     const token = localStorage.getItem("token")
+    const userName = localStorage.getItem("name")
     useEffect(()=>{
       if(token){
-        axios.get('https://authentication-api-obav.onrender.com/api/',{headers:{"authorization":`Bearer ${token}`}}) //req.headers["authorization"] from server to get access the data of home page
+        axios.get('http://localhost:4000/api/',{headers:{"authorization":`Bearer ${token}`}})
         .then((res)=>{
           setval({
-            value:res.data.Firstname,
+            value:userName,
             btn:"LogOut"
           });
+          console.log(res.data);
         })
         .catch((err)=>console.log(err))
       }
@@ -54,6 +56,7 @@ const Navbar = () => {
   
     const handleClick = ()=>{
       localStorage.removeItem("token");
+      localStorage.removeItem("name");
       Nav("/")
     }
     
@@ -77,9 +80,12 @@ const Navbar = () => {
                             <NavLink className='navlinks' to='/mobile&tablet'>Mobile & Tablets</NavLink>
                             <div className='sublinks'>
                                 {
-                                    Mobiledata.map(item=>{
+                                    Mobiledata.map((item,index)=>{
+                                        const[CompData] = useState(["Iphone","Oneplus","Samsung","Motorola","Oppo"]);
                                         return(
+                                            <Link key={index} to={`/subcomp/${item}/${CompData}/Mobile & Tablet`} >
                                             <span>{item}</span>
+                                            </Link>
                                         )
                                     })
                                 }
@@ -89,9 +95,12 @@ const Navbar = () => {
                             <NavLink className='navlinks' to='/electronics'>Electronics</NavLink>
                             <div className='sublinks'>
                                 {
-                                    Elctronicsdata.map(item=>{
+                                    Elctronicsdata.map((item,index)=>{
+                                        const[CompData] = useState(["Mobile Accessories","Smart wearable Tech","Laptops","Tv & Appliances"]);
                                         return(
-                                            <span>{item}</span>
+                                            <Link key={index} to={`/subcomp/${item}/${CompData}/Electronics`} >
+                                                <span>{item}</span>
+                                            </Link>
                                         )
                                     })
                                 }
@@ -101,9 +110,12 @@ const Navbar = () => {
                             <NavLink className='navlinks' to='/fashion'>Fashion</NavLink>
                             <div className='sublinks'>
                                 {
-                                    Fashiondata.map(item=>{
-                                        return(
-                                            <span>{item}</span>
+                                    Fashiondata.map((item,index)=>{
+                                        const[CompData] = useState(["Beauty","Men","Female"]);
+                                        return(  
+                                            <Link key={index} to={`/subcomp/${item}/${CompData}/Fashion`} >
+                                                <span>{item}</span>
+                                            </Link>                             
                                         )
                                     })
                                 }
@@ -114,9 +126,12 @@ const Navbar = () => {
                             <NavLink className='navlinks' to='/furniture'>Furniture</NavLink>
                             <div className='sublinks'>
                                 {
-                                    furnituredata.map(item=>{
+                                    furnituredata.map((item,index)=>{
+                                        const[CompData] = useState(["Kitchen Cookware & Serveware","Kitchen Storeage","Cleaning Supplies","Furnishing","Home Decor"]);
                                         return(
-                                            <span>{item}</span>
+                                            <Link key={index} to={`/subcomp/${item}/${CompData}/Furniture`} >
+                                                <span>{item}</span>
+                                            </Link>
                                         )
                                     })
                                 }
@@ -133,7 +148,7 @@ const Navbar = () => {
                 <div className='prorile-menu'>
                   <span>{val.value}</span>
                   {
-                    val.btn == "LogOut" ? <span onClick={handleClick}>{val.btn}</span> :  <span><Link to='/authentication'>{val.btn}</Link></span>
+                    val.btn == "LogOut" ? <span onClick={handleClick}>{val.btn}</span> :  <span className='authStyle'><Link to='/authentication'>{val.btn}</Link></span>
                   }
                 </div>
             </div>
