@@ -7,21 +7,27 @@ const AddtoCart = createSlice({
     },
     reducers:{
         addtoCart: (state, action) => {
-            const addedItem = state.cart.find(
-              (item) => item.id === action.payload.id
-            );
-      
-            if (addedItem) {
-              // if item id or same item exist then increase its quantity and total
-              addedItem.quantity += 1;
-              addedItem.total = addedItem.price * addedItem.quantity;
-            } else {
-              // if item or id doesn't exist, add it to the cart with default quantity 1
-              state.cart.push({
-                ...action.payload,
-                quantity: 1,
-                // total: action.payload.price,
-              });
+          const token = localStorage.getItem("token")
+            if(token){
+              const addedItem = state.cart.find(
+                (item) => item.id === action.payload.id
+              );
+        
+              if (addedItem) {
+                // if item id or same item exist then increase its quantity and total
+                addedItem.quantity += 1;
+                addedItem.total = addedItem.price * addedItem.quantity;
+              } else {
+                // if item or id doesn't exist, add it to the cart with default quantity 1
+                state.cart.push({
+                  ...action.payload,
+                  quantity: 1,
+                  // total: action.payload.price,
+                });
+              }
+            }
+            else{
+              alert("First login")
             }
           },
       

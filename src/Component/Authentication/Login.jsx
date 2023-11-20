@@ -2,6 +2,8 @@ import axios from 'axios'
 import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../Style/Authentication.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const Nav = useNavigate()
@@ -20,11 +22,19 @@ const changeHandler = (e)=>{
 const token = localStorage.getItem("token")
 
 const Loginsubmit = ()=>{
-    axios.post('https://ecommerce-backend-rzz2.onrender.com/api/login',logindata)
+    axios.post('https://ecommerce-backend-s1ya.onrender.com/api/login',logindata)
     .then((res)=> {
-        alert(res.data.msg);
+        if(res.data.msg === "User is successfully Login"){
+        toast.success(res.data.msg);
         localStorage.setItem("token",res.data.token)
+        localStorage.setItem("username",res.data.username)
         console.log(res.data);
+        Nav("/")
+    }
+    else{
+        toast.warn("Invalid Entery")
+        toast.warn(res.data.msg);
+    }
     })
     .catch((err)=>console.log(err))
 
@@ -32,13 +42,6 @@ const Loginsubmit = ()=>{
         email:"",
         password:""
     })
-
-    if(token){
-        Nav("/")
-    }
-    else{
-        Nav("/singup")
-    }
 }
 return (
 <div className="form-parent">
@@ -50,7 +53,7 @@ return (
                 <input className="formInp" type="text" name="email" value={logindata.email} placeholder='Email' onChange={changeHandler} required/>
                 <label className="form-label">Password</label>
                 <input className="formInp" type='password' name='password' value={logindata.password} placeholder='Password' onChange={changeHandler} required/>
-                <button className="form-btn" type='submit' onClick={()=> Loginsubmit()} >Login</button>
+                <button className="form-btn" type='submit' onClick={Loginsubmit} >Login</button>
             </form>
             <div className='orOtpion'>
                 <span>Or</span>
@@ -58,6 +61,7 @@ return (
             </div>
         </div>
     </div>
+    <ToastContainer />
 </div>
 )
 }

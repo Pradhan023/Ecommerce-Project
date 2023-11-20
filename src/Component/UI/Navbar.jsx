@@ -5,9 +5,9 @@ import {RxAvatar} from 'react-icons/rx'
 import {HiMenuAlt1} from 'react-icons/hi'
 import {AiOutlineClose} from 'react-icons/ai'
 import '../Style/Ui.css'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import { Link, NavLink, useNavigate} from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import axios from 'axios'
 
 const Navbar = () => {
     const[menuval,setMenuval] = useState(true)
@@ -33,34 +33,40 @@ const Navbar = () => {
     const Nav = useNavigate()
 
     const token = localStorage.getItem("token")
-    const userName = localStorage.getItem("name")
+    const userName = localStorage.getItem("username")
     useEffect(()=>{
       if(token){
-        axios.get('http://localhost:4000/api/',{headers:{"authorization":`Bearer ${token}`}})
-        .then((res)=>{
           setval({
             value:userName,
             btn:"LogOut"
           });
-          console.log(res.data);
-        })
-        .catch((err)=>console.log(err))
-      }
+        }
       else{
         setval({
           value:"Profile",
           btn:"SignIn"
         })
       }
-    },[token,Nav])
+    },[token,Nav,userName])
   
     const handleClick = ()=>{
       localStorage.removeItem("token");
-      localStorage.removeItem("name");
+      localStorage.removeItem("username");
       Nav("/")
     }
     
     const cartItem = useSelector((state)=>state.Cart.cart)
+
+    
+    const [searchval,setSearchval] = useState('')
+    const [searchdata,setSearchdata] = useState([])
+
+        useEffect(()=>{
+            axios.get(`https://ecommerce-backend-s1ya.onrender.com/api/search?name=${searchval}`)
+        .then((res)=> setSearchdata(res.data))
+        .catch((Err)=> console.log("search error",Err))
+        },[searchdata])
+
   
     return (
     <div>
@@ -70,8 +76,8 @@ const Navbar = () => {
                 <nav className='links'>
                     <ul className={menuNav ? 'links-show'  : 'links-grid'}>
                         <li className={menuSearch ? 'search-show' : 'search-1'}>
-                        <input className='search-input1' type='text' placeholder='Seacrh for Product or Brand & more'/>
-                        <button className='searchBtn1'><AiOutlineSearch/></button>
+                        <input className='search-input1' type='text' placeholder='Search for Product or Brand & more' onChange={(e)=>setSearchval(e.target.value)}/>
+                        <button className='searchBtn1'><Link to='/searchcomp' state={searchdata}><AiOutlineSearch/></Link></button>
                         </li>
                         <li>
                             <NavLink className='navlinks' to='/'>Home</NavLink>
@@ -140,8 +146,8 @@ const Navbar = () => {
                     </ul>
                 </nav>
                 <div className='search'>
-                    <input className='search-input' type='text' placeholder='Seacrh for Product or Brand & more'/>
-                    <button className='searchBtn'><AiOutlineSearch/></button>
+                    <input className='search-input' type='text'  placeholder='Search for Product or Brand & more' onChange={(e)=>setSearchval(e.target.value)}/>
+                    <button className='searchBtn'><Link to='/searchcomp' state={searchdata}><AiOutlineSearch/></Link></button>
                 </div>
                 <span className='cart'><Link to='/cart' ><AiOutlineShoppingCart color='black'/></Link><span style={{fontSize:"24px" , color:"burlywood"}}>{cartItem.length}</span></span>
             <div className='profile'><RxAvatar/>

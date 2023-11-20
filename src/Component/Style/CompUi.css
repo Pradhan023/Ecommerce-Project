@@ -53,7 +53,7 @@ hr{
     justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 60px 0;
-    min-height: 70rem;
+    /* m-height: 70rem; */
     padding: 10px 0;
 }
 .card{

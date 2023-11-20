@@ -1,33 +1,60 @@
-import React, { useContext} from 'react'
-import '../Style/CompUi.css'
-import { Link, useParams } from 'react-router-dom';
+import React, { useContext, useEffect, useState} from 'react'
+import '../../Style/CompUi.css'
+import {Link, useLocation, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addtoCart } from '../../Feature/cartslice';
-import Store from '../Content/Store';
+import { addtoCart } from '../../../Feature/cartslice';
+import Store from '../../Content/Store';
+import axios from 'axios';
 
-const Subcomp = () => {
+const SearchRender = () => {
     const dispatch = useDispatch();
-    const Data = useContext(Store)
+    // const Data = useContext(Store)
     const params = useParams()
-    const subCategory = params.subcategory;
-    const subRoute = params.subroutes
-    const head = params.heading
-    console.log(subRoute);
-    const array = subRoute.split(",")
-    console.log(array);
-    const filtered = Data && Data.filter((item)=> item.subcategory == subCategory)
-    console.log(filtered);
-  
+
+    const loc = useLocation()
+    const Data = loc.state
+    console.log(Data);
+
+    const [side,setSide] = useState([])
+    const [head,sethead] = useState("")
+
+    const sideData = {
+      Mobile:["Iphone","Oneplus","Samsung","Motorola","Oppo"],
+      Electronics:["Mobile Accessories","Smart wearable Tech","Laptops","Tv & Appliances"],
+      Fashion:["Beauty","Men","Female"],
+      Furniture:["Kitchen Cookware & Serveware","Kitchen Storeage","Cleaning Supplies","Furnishing","Home Decor"]
+    }
+
+
+    useEffect(()=>{
+      if(Data[0].category == "Mobile"){
+        sethead("Mobile & Tablet")
+        return setSide(sideData.Mobile)
+      }
+      if(Data[0].category == "Electronics"){
+        sethead("Electronics")
+        return setSide(sideData.Electronics)
+      }
+      if(Data[0].category == "Fashion"){
+        sethead("Fashion")
+        return setSide(sideData.Fashion)
+      }
+      if(Data[0].category == "Furniture"){
+        sethead("Furniture")
+        return setSide(sideData.Furniture)
+      }
+    },[loc])
+
     return (
           <div className="grid-parent">
    
             <div className="grid-1">
               <h2>{head}</h2>
               {
-                array && array.map((item,index)=>{
+                side && side.map((item,index)=>{
                   return(
                     <div key={index}>
-                      <Link to={`/subcomp/${item}/${array}/${head}`} >
+                      <Link to={`/subcomp/${item}/${side}/${head}`} >
                       <p style={{textDecoration:"none" , color:"black"}}>{item}</p>
                       </Link>
                       <hr/>
@@ -43,7 +70,7 @@ const Subcomp = () => {
               <img src="https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/u/h/7/edge-40-neo-payj0004in-motorola-original-imagtkezzam4qxfq.jpeg?q=70" alt='Loading...'/>
             </div>
             {
-              filtered && filtered.map((item,index)=>{
+              Data && Data.map((item,index)=>{
                 const{id=item.id,img=item.img,heading=item.heading,price=item.price} = item
                 return(
                   <div className='card' key={index}>
@@ -64,4 +91,4 @@ const Subcomp = () => {
     )
 }
 
-export default Subcomp
+export default SearchRender

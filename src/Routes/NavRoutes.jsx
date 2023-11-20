@@ -14,12 +14,13 @@ import Subcomp from '../Component/UI/Subcomp'
 import axios from 'axios'
 import Singup from '../Component/Authentication/Singup '
 import Login from '../Component/Authentication/Login'
+import SearchRender from '../Component/UI/Components/Searchrender'
 
 const NavRoutes = () => {
     const [data , setData] = useState([])
 
     useEffect(()=>{
-        axios.get("https://ecommerce-backend-rzz2.onrender.com/api/findData")
+        axios.get("https://ecommerce-backend-s1ya.onrender.com/api/findData")
         .then((res)=>setData(res.data))
         .catch((err)=>console.log("catch error"+err))
     },[])
@@ -69,6 +70,7 @@ const NavRoutes = () => {
             } />
             <Route path='/singup' element={<Singup/>} />
             <Route path='/signin' element={<Login/>} />
+            <Route path='/searchcomp' element={<SearchRender/>} />
         </Routes>
     </div>
   )
