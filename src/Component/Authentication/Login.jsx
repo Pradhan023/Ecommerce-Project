@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import '../Style/Authentication.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import bg from '../../assets/authBg.jpeg'
 
 const Login = () => {
   const Nav = useNavigate()
@@ -45,7 +46,7 @@ const Loginsubmit = ()=>{
 }
 return (
 <div className="form-parent">
-    <img style={{position:"absolute", width:"100%" , top:"5rem", height:"64%" }} src="https://www.popsci.com/uploads/2020/06/05/3NIEQB3SFVCMNHH6MHZ42FO6PA.jpg?auto=webp" />
+    <img style={{position:"absolute", width:"100%" , top:"5rem", height:"64%" }} src={bg} />
     <div className="form-Container">
     <h1 className="form-head">Login Page</h1>
         <div className="childform-container">
