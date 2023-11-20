@@ -1,9 +1,6 @@
 .form-parent{
     display: flex;
     justify-content: center;
-    background-image: url("https://www.popsci.com/uploads/2020/06/05/3NIEQB3SFVCMNHH6MHZ42FO6PA.jpg?auto=webp");
-    background-repeat: no-repeat;
-    background-size: cover;
     padding: 40px 0;
     cursor: pointer;
 }
