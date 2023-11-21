@@ -23,7 +23,7 @@ const Home = () => {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "black" , borderRadius:"10px" }}
+        style={{ ...style, display: "block", background: "black" , borderRadius:"10px",position:"absolute" ,right:"5px"  }}
         onClick={onClick}
       />
     );
@@ -34,7 +34,7 @@ const Home = () => {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "black", borderRadius:"10px" }}
+        style={{ ...style, display: "block", background: "black", borderRadius:"10px",position:"absolute" }}
         onClick={onClick}
       />
     );
