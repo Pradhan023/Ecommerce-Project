@@ -49,7 +49,7 @@ const Cart = () => {
       <h2 className='headcart'>Cart</h2>
 
       {
-        data.lenth > 0 ? 
+        data.length > 0 ? 
         <div className='cart-content'>
 
         <div className='headOfcart'>
