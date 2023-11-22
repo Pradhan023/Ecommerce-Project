@@ -77,7 +77,7 @@ const Navbar = () => {
                     <ul className={menuNav ? 'links-show'  : 'links-grid'}>
                         <li className={menuSearch ? 'search-show' : 'search-1'}>
                         <input className='search-input1' type='text' placeholder='Search for Product or Brand & more' onChange={(e)=>setSearchval(e.target.value)}/>
-                        <button className='searchBtn1'><Link to='/searchcomp' state={searchdata}><AiOutlineSearch/></Link></button>
+                        <button className='searchBtn1'><Link to='/searchcomp' state={searchdata}><AiOutlineSearch color='black'/></Link></button>
                         </li>
                         <li>
                             <NavLink className='navlinks' to='/'>Home</NavLink>
@@ -147,7 +147,7 @@ const Navbar = () => {
                 </nav>
                 <div className='search'>
                     <input className='search-input' type='text'  placeholder='Search for Product or Brand & more' onChange={(e)=>setSearchval(e.target.value)}/>
-                    <button className='searchBtn'><Link to='/searchcomp' state={searchdata}><AiOutlineSearch/></Link></button>
+                    <button className='searchBtn'><Link to='/searchcomp' state={searchdata}><AiOutlineSearch color='black'/></Link></button>
                 </div>
                 <span className='cart'><Link to='/cart' ><AiOutlineShoppingCart color='black'/></Link><span style={{fontSize:"24px" , color:"burlywood"}}>{cartItem.length}</span></span>
             <div className='profile'><RxAvatar/>

@@ -17,13 +17,17 @@ const Home = () => {
   const MostSeen = Data.filter((item)=> item.id%8 ===0)
   const dispatch = useDispatch()
 
+  const ScrollTo = () =>{
+    window.scrollTo(0,0)
+  }
+
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "black" , borderRadius:"10px",position:"absolute" ,right:"5px"  }}
+        style={{ ...style, display: "block", background: "black" , borderRadius:"10px" }}
         onClick={onClick}
       />
     );
@@ -34,7 +38,7 @@ const Home = () => {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "black", borderRadius:"10px",position:"absolute" }}
+        style={{ ...style, display: "block", background: "black", borderRadius:"10px" }}
         onClick={onClick}
       />
     );
@@ -133,7 +137,7 @@ const Home = () => {
                   const{id=item.id,img=item.img,heading=item.heading,price=item.price} = item
                     return(
                       <div className='home-cardProduct' key={index}>
-                        <Link className='linkhome-cardProduct'  to={`/rendercard/${item.id}/${item.category}` }  >
+                        <Link onClick={ScrollTo} className='linkhome-cardProduct'  to={`/rendercard/${item.id}/${item.category}` }  >
                           <img src={item.img} alt='Loading...' />
                           <h2 className='homecard-heading'>{item.heading}</h2>
                           <span>⭐⭐⭐⭐⭐</span>
@@ -158,7 +162,7 @@ const Home = () => {
                   const{id=item.id,img=item.img,heading=item.heading,price=item.price} = item
                     return(
                       <div className='home-cardProduct' key={index}>
-                        <Link className='linkhome-cardProduct'  to={`/rendercard/${item.id}/${item.category}` }  >
+                        <Link onClick={ScrollTo} className='linkhome-cardProduct'  to={`/rendercard/${item.id}/${item.category}` }  >
                           <img src={item.img} alt='Loading...' />
                           <h2 className='homecard-heading'>{item.heading}</h2>
                           <span>⭐⭐⭐⭐⭐</span>
@@ -181,7 +185,7 @@ const Home = () => {
                   const{id=item.id,img=item.img,heading=item.heading,price=item.price} = item
                     return(
                       <div className='home-cardProduct' key={index}>
-                        <Link className='linkhome-cardProduct'  to={`/rendercard/${item.id}/${item.category}` }  >
+                        <Link onClick={ScrollTo} className='linkhome-cardProduct'  to={`/rendercard/${item.id}/${item.category}` }  >
                           <img src={item.img} alt='Loading...' />
                           <h2 className='homecard-heading'>{item.heading}</h2>
                           <span>⭐⭐⭐⭐⭐</span>

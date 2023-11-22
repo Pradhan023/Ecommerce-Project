@@ -3,9 +3,13 @@ import '../../Style/cart.css'
 import { useSelector } from 'react-redux'
 import { RemoveItem , increaseQuantity , decreaseQuantity } from '../../../Feature/cartslice'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { loadStripe } from '@stripe/stripe-js'
 
 const Cart = () => {
   const dispatch =useDispatch()
+
+  const Nav = useNavigate()
 
   const data = useSelector((state)=>state.Cart.cart);
  
@@ -15,12 +19,38 @@ const Cart = () => {
     return acc + item.price * item.quantity;
   }, 0);
 
+  const stripePayment = async()=>{
+    const stripe =await loadStripe("pk_test_51OFIngSEzJx90BYMsS58schJO5W4mfb11nhMesoKWfuGwRPqPNyK7cRkpqoxSPdrZZjAHcwlKx1UHmOHvad4Xx0X00jzoYxvbR")
+
+  const body ={
+    products:data
+  }
+  const headers={
+    "Content-Type":"application/json"
+  }
+  const response = await fetch("http://localhost:4000/api/out/create-checkout-session",{
+          method:"POST",
+          headers:headers,
+          body:JSON.stringify(body)
+  })
+  const session= await response.json();
+
+  const result =stripe.redirectToCheckout({
+    sessionId:session.id
+  })
+  if(result.error){
+    console.log(result.error)
+  }
+
+  }
 
   return (
     <div>
       <h2 className='headcart'>Cart</h2>
-      
-      <div className='cart-content'>
+
+      {
+        data.lenth > 0 ? 
+        <div className='cart-content'>
 
         <div className='headOfcart'>
           <h4>Product</h4>
@@ -59,10 +89,15 @@ const Cart = () => {
         </div>
 
         <div className='buy'>
-          <button >Buy Now</button>
+          <button onClick={stripePayment} >Buy Now</button>
         </div>
-
       </div>
+
+      : <div className='noitem'>
+        <img src="https://shop.millenniumbooksource.com/static/images/cart1.png" />
+      </div>
+      }
+
     </div>
   )
 }

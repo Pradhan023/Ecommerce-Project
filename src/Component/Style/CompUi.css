@@ -98,6 +98,15 @@ hr{
     cursor: pointer;
 }
 
+/* no search  */ 
+
+.nosearch{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    height: 55vh;
+}
+
 @media screen and (max-width:756px){
     .grid-parent{
         background-color: rgb(245, 245, 245);
@@ -128,6 +137,11 @@ hr{
     .heroimg p{
         top: 30px;
         font-size: x-large;
+    }
+
+    .nosearch img{
+        width: 100%;
+        height: 45vh;
     }
 }
 

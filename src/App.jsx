@@ -7,8 +7,8 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-      <NavRoutes/>
-      <Footer/>
+        <NavRoutes/>
+        <Footer/>
       </BrowserRouter>
     </>
   )

@@ -10,7 +10,7 @@
 }
 
 .slider{
-    width: 96%;
+    width: 95%;
     margin-left: 2rem;
 }
 .homeCardProduct-parent{
@@ -73,7 +73,7 @@
 
 @media screen and (max-width:756px){
     .slider{
-        width: 84%;
+        width: 82%;
         margin-left: 2rem;
     }
     .homeCardProduct-parent{

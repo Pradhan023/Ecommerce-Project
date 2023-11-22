@@ -4,7 +4,6 @@ import Store from '../../Content/Store';
 import { useDispatch } from 'react-redux';
 import { addtoCart } from '../../../Feature/cartslice';
 import '../../Style/rendercard.css'
-import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
@@ -13,10 +12,10 @@ const RenderCArd = () => {
   const paramId = params.id
   const paramcat = params.category
   const Data = useContext(Store);
-  console.log(Data);
-  console.log(Data[paramId]);
+  const filterData = Data && Data.filter((item)=> item.id == paramId )
+  // console.log(filterData);
+  // console.log(Data[paramId]);
   const {id=Data[paramId].id,img=Data[paramId].img,heading=Data[paramId].heading,price=Data[paramId].price} = Data
-console.log(id);
   const dispatch = useDispatch();
 
   const ScrollTo = () =>{
@@ -28,11 +27,11 @@ console.log(id);
       <h2>{paramcat}</h2>
       <div className='container-newpage'>
 
-        <img src={Data[paramId].img} /> 
+        <img src={filterData[0].img} /> 
         <div className='newpage-subpage'>
-          <h1>{Data[paramId].heading}</h1>
+          <h1>{filterData[0].heading}</h1>
           <p>⭐⭐⭐⭐⭐</p>
-          <h1>{"₹ " +Data[paramId].price}</h1>
+          <h1>{"₹ " +filterData[0].price}</h1>
           <button onClick={()=> dispatch(addtoCart({id,img,heading,price}))} >Add To Cart</button>
         </div>
 

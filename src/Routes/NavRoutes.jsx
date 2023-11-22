@@ -15,6 +15,8 @@ import axios from 'axios'
 import Singup from '../Component/Authentication/Singup '
 import Login from '../Component/Authentication/Login'
 import SearchRender from '../Component/UI/Components/Searchrender'
+import Success from '../Component/UI/Components/Stripe/Success'
+import Cancel from '../Component/UI/Components/Stripe/Cancel'
 
 const NavRoutes = () => {
     const [data , setData] = useState([])
@@ -71,6 +73,8 @@ const NavRoutes = () => {
             <Route path='/singup' element={<Singup/>} />
             <Route path='/signin' element={<Login/>} />
             <Route path='/searchcomp' element={<SearchRender/>} />
+            <Route path='/success' element={<Success/>} />
+            <Route path='/cancel' element={<Cancel/>} />
         </Routes>
     </div>
   )
