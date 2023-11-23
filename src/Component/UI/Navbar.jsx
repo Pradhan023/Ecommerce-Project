@@ -65,7 +65,7 @@ const Navbar = () => {
             axios.get(`https://ecommerce-backend-s1ya.onrender.com/api/search?name=${searchval}`)
         .then((res)=> setSearchdata(res.data))
         .catch((Err)=> console.log("search error",Err))
-        },[searchdata])
+        },[searchdata]);
 
   
     return (
