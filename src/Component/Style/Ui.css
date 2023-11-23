@@ -73,7 +73,7 @@ ul li {
     position: absolute;
 }
 .prorile-menu span{
-    display: block;
+    display: none;
     position: relative;
     top: 30px;
     color: black;
@@ -83,11 +83,11 @@ ul li {
     background-color: white;
     border-bottom: 1px solid grey;
 }
-/* .profile:hover .prorile-menu span{
+.profile:hover .prorile-menu span{
     display: block;
     z-index: 3;
     color: black;
-} */
+}
 .links-grid ,.links-show{
     display: flex;
     justify-content: right;
