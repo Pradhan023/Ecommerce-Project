@@ -46,16 +46,16 @@ const Loginsubmit = (e)=>{
     })
     setTimeout(() => {
         Nav("/")
-    }, 5000);
+    }, 4000);
 }
 return (
 <div className="form-parent">
-    <img style={{position:"absolute", width:"100%" , top:"5rem", height:"64%" }} src={bg} />
+    <img style={{position:"absolute", width:"100%" , top:"5rem", height:"31rem" }} src={bg} />
     <div className="form-Container">
     <h1 className="form-head">Login Page</h1>
         <div className="childform-container">
             <form >
-                <label className="form-label">Name</label>
+                <label className="form-label">Email</label>
                 <input className="formInp" type="text" name="email" value={logindata.email} placeholder='Email' onChange={changeHandler}  />
                 <label className="form-label">Password</label>
                 <input className="formInp" type='password' name='password' value={logindata.password} placeholder='Password' onChange={changeHandler} />

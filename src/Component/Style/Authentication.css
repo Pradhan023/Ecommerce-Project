@@ -39,7 +39,7 @@
     color: white;
 }
 .childform-container input:focus{
-    border: 2px solid white;
+    border: 1px solid white;
 }
 .form-btn{
     color: white;
