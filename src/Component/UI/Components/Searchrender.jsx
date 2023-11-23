@@ -9,7 +9,7 @@ const SearchRender = () => {
 
     const loc = useLocation()
     const Data = loc.state
-    // console.log(Data);
+    console.log(Data.length);
 
     const [side,setSide] = useState([])
     const [head,sethead] = useState("")
@@ -18,11 +18,11 @@ const SearchRender = () => {
       Mobile:["Iphone","Oneplus","Samsung","Motorola","Oppo"],
       Electronics:["Mobile Accessories","Smart wearable Tech","Laptops","Tv & Appliances"],
       Fashion:["Beauty","Men","Female"],
-      Furniture:["Kitchen Cookware & Serveware","Kitchen Storeage","Cleaning Supplies","Furnishing","Home Decor"]
+      Furniture:["Kitchen Storeage","Cleaning Supplies","Furnishing","Home Decor"]
     }
 
 
-    if(side.length < 1 )
+    if(Data.length === 0 )
     {
       return(
         <div className='nosearch'>

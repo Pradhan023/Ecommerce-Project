@@ -22,7 +22,7 @@ const Navbar = () => {
     const[Mobiledata] = useState(["iphone","Oneplus","Samsung","Motorola","Oppo"]);
     const[Elctronicsdata] = useState(["Mobile Accessories","Smart wearable Tech","Laptops","Tv & Appliances"])
     const[Fashiondata] = useState(["Beauty","Men","Female"])
-    const[furnituredata] = useState(["Kitchen, Cookware & Serveware","Kitchen Storeage","Cleaning Supplies","Furnishing","Home Decor"])
+    const[furnituredata] = useState(["Kitchen Storeage","Cleaning Supplies","Furnishing","Home Decor"])
 
 
     const[val,setval] = useState({
@@ -133,7 +133,7 @@ const Navbar = () => {
                             <div className='sublinks'>
                                 {
                                     furnituredata.map((item,index)=>{
-                                        const[CompData] = useState(["Kitchen Cookware & Serveware","Kitchen Storeage","Cleaning Supplies","Furnishing","Home Decor"]);
+                                        const[CompData] = useState(["Kitchen Storeage","Cleaning Supplies","Furnishing","Home Decor"]);
                                         return(
                                             <Link key={index} to={`/subcomp/${item}/${CompData}/Furniture`} >
                                                 <span>{item}</span>

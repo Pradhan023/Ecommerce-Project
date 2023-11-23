@@ -7,7 +7,8 @@ import '../../Style/CompUi.css'
 const Furniture = () => {
   const Data = useContext(Store)
   const filtered = Data && Data.filter((item)=> item.category === "Furniture")
-  const[Mobiledata] = useState(["Kitchen Cookware & Serveware","Kitchen Storeage","Cleaning Supplies","Furnishing","Home Decor"]);
+  console.log(filtered);
+  const[Mobiledata] = useState(["Kitchen Storeage","Cleaning Supplies","Furnishing","Home Decor"]);
 
   return (
     <div>
